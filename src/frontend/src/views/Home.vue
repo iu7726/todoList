@@ -1,12 +1,49 @@
 <template>
     <div class="home">
-        hello
+        <h2>Test님 어서오세요!</h2>
+        <div>
+            <div>
+                오늘의 할일 목록입니다.
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        1.test
+                    </li>
+                    <li>
+                        2.test2
+                    </li>
+                    <li>
+                        3.test3
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div>
+                어제 하지 못한 목록입니다.
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        1.test1
+                    </li>
+                    <li>
+                        2.test2
+                    </li>
+                    <li>
+                        3.test3
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            추가하기
+        </div>
     </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import axios from "axios";
 
 export default {
     name: "Home",
@@ -14,7 +51,7 @@ export default {
 
     },
     mounted() {
-        axios.get("/api/hello").then(res => console.log(res));
+
     }
 };
 </script>

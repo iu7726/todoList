@@ -4,7 +4,7 @@
             ToDo
         </div>
         <div class="header-search">
-            <v-input inpW="50" inpH="30" cls="header-input" />
+            <v-input cls="header-input" />
             <v-btn cls="header-search-btn">검색</v-btn>
         </div>
         <div class="header-info">
@@ -36,6 +36,8 @@
     .main-header{
         height: 70px;
         text-align: left;
+        padding:10px;
+        background: #a9adbf59;
 
         .header-search{
             float: left;

@@ -37,7 +37,7 @@
             width: 30%;
             height: 30px;
             float: left;
-            margin-left: 50%;
+            margin-left: 39%;
             margin-top: 8px;
 
         }
