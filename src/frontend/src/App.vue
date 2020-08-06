@@ -43,5 +43,6 @@
     .main-content{
         float: left;
         width: 90%;
+        padding: 10px;
     }
 </style>

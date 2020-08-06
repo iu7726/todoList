@@ -1,12 +1,30 @@
 <template>
     <div class="home">
-        <h2>Test님 어서오세요!</h2>
-        <div>
-            <div>
+        <full-calendar class="work-calendar" :events="events" :config="calendarOptions"></full-calendar>
+        <div class="work-body today">
+            <div class="work-title">
                 오늘의 할일 목록입니다.
             </div>
-            <div>
+            <div class="work-list">
                 <ul>
+                    <li>
+                        1.test
+                    </li>
+                    <li>
+                        2.test2
+                    </li>
+                    <li>
+                        3.test3
+                    </li>
+                    <li>
+                        1.test
+                    </li>
+                    <li>
+                        2.test2
+                    </li>
+                    <li>
+                        3.test3
+                    </li>
                     <li>
                         1.test
                     </li>
@@ -19,11 +37,11 @@
                 </ul>
             </div>
         </div>
-        <div>
-            <div>
+        <div class="work-body yesterday">
+            <div class="work-title">
                 어제 하지 못한 목록입니다.
             </div>
-            <div>
+            <div class="work-list">
                 <ul>
                     <li>
                         1.test1
@@ -37,21 +55,76 @@
                 </ul>
             </div>
         </div>
-        <div>
-            추가하기
-        </div>
     </div>
 </template>
 
 <script>
 
-export default {
-    name: "Home",
-    components: {
+    import { FullCalendar } from 'vue-full-calendar'
+    import 'fullcalendar/dist/fullcalendar.css'
 
-    },
-    mounted() {
+    export default {
+        name: "Home",
+        components: {
+            'full-calendar':FullCalendar
+        },
+        data(){
+            return {
+                calendarOptions:{
+                    aspectRatio:3
+                },
+                events:[],
+            }
+        },
+        mounted() {
 
-    }
-};
+        }
+    };
 </script>
+
+<style lang="scss" scoped>
+
+    .home{
+
+        display: inline-block;
+
+        .work-calendar{
+
+            overflow-y: auto;
+            height: 67vh;
+        }
+
+        .work-body{
+            float: left;
+            width: 50%;
+            border: 1px solid #ccccee;
+            height: 10vh;
+
+            ul {
+                margin:0px;
+                padding: 3px 0px 0px 0px;
+
+                li {
+                    list-style: none
+                }
+            }
+
+            .work-title{
+
+                background: #bbc3dd;
+                color:#fff;
+
+            }
+
+            .work-list{
+                height: 7vh;
+                overflow-y: auto;
+            }
+
+
+
+        }
+    }
+
+
+</style>

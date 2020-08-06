@@ -3,6 +3,181 @@
         <div v-for="navi in categoryList" :key="'navi_'+navi.id" class="navi-row">
             {{navi.cate_name}}
         </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+        <div class="navi-row">
+            dummy
+        </div>
+
     </div>
 </template>
 
@@ -41,8 +216,9 @@
     .main-navi{
         float: left;
         width: 10%;
-        height: 100%;
+        height: 88vh;
         padding:10px;
+        overflow-y: auto;
 
         .navi-row{
             height: 35px;
