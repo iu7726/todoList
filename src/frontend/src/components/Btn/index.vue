@@ -1,6 +1,6 @@
 <template>
     <div class="type-btn">
-        <div :class="[cls]">
+        <div :class="[cls]" @click="btnClick">
             <slot></slot>
         </div>
     </div>
@@ -9,7 +9,12 @@
 <script>
     export default {
         name: "index",
-        props:['cls']
+        props:['cls'],
+        methods:{
+            btnClick(){
+                this.$emit('btnClick')
+            }
+        }
     }
 </script>
 
@@ -39,6 +44,19 @@
             color: #6EB5FF;
             text-align: center;
             border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .add-work-btn{
+            border: 1px solid #6EB5FF;
+            color: #6EB5FF;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .add-close{
+            float: right;
             cursor: pointer;
         }
     }

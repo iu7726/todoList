@@ -55,6 +55,10 @@
                 </ul>
             </div>
         </div>
+        <div class="work-body">
+            <v-btn cls="add-work-btn" @btnClick="addPopView = true">추가하기</v-btn>
+        </div>
+        <add-work v-show="addPopView" @addPopClose="addPopView = false"></add-work>
     </div>
 </template>
 
@@ -63,21 +67,61 @@
     import { FullCalendar } from 'vue-full-calendar'
     import 'fullcalendar/dist/fullcalendar.css'
 
+    import Btn from "../components/Btn"
+
+    import addWork from "../templates/AddWork"
+
     export default {
         name: "Home",
         components: {
-            'full-calendar':FullCalendar
+            'full-calendar':FullCalendar,
+            "v-btn":Btn,
+            'add-work':addWork,
         },
         data(){
             return {
                 calendarOptions:{
-                    aspectRatio:3
+                    aspectRatio:3,
+                    locale:'ko'
                 },
-                events:[],
+                addPopView:false,
+                events:[
+                    {
+                        id: 'a',
+                        title: 'my event',
+                        start: '2020-08-08',
+                        end : '2020-08-09 23:20:00',
+                    },
+                    {
+                        id: 'b',
+                        title: 'my event2',
+                        start: '2020-08-08',
+                        end : '2020-08-09 23:20:00',
+                    },
+                    {
+                        id: '1',
+                        groupId:'13',
+                        title: 'my group event',
+                        start: '2020-08-10',
+                        end : '2020-08-15 23:20:00',
+                    },
+                    {
+                        id: '2',
+                        groupId:'13',
+                        title: 'my group event2',
+                        start: '2020-08-11',
+                        end : '2020-08-12 23:20:00',
+                    }
+                ],
             }
         },
         mounted() {
 
+        },
+        methods:{
+            addView(){
+                console.log("얍얍")
+            }
         }
     };
 </script>
@@ -96,9 +140,9 @@
 
         .work-body{
             float: left;
-            width: 50%;
+            width: 33%;
             border: 1px solid #ccccee;
-            height: 10vh;
+            height: 18vh;
 
             ul {
                 margin:0px;
