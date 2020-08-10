@@ -16,7 +16,7 @@
         components:{
             "main-header" : mainHeader,
             "main-navi" : mainNavi
-        }
+        },
     }
 </script>
 

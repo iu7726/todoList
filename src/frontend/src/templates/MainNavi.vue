@@ -1,6 +1,12 @@
 <template>
     <div class="main-navi">
-        <div v-for="navi in categoryList" :key="'navi_'+navi.id" class="navi-row">
+        <div
+                v-for="navi in categoryList"
+                :key="'navi_'+navi.id"
+                class="navi-row"
+                :class="{ active : selectId == navi.id}"
+                @click="selectNavi(navi)"
+        >
             {{navi.cate_name}}
         </div>
     </div>
@@ -15,12 +21,19 @@
         data() {
             return{
                 naviList:[],
+                selectId:0,
+            }
+        },
+        watch:{
+            getPickCate(val){
+                this.selectId = val.id
             }
         },
         computed:{
 
           ...mapGetters({
               categoryList:'mainFix/categoryList',
+              getPickCate:'mainFix/getPickCate',
           }),
 
         },
@@ -31,7 +44,12 @@
 
             ...mapActions({
                 getCategory:'mainFix/getCategory',
-            })
+                modPickCate:'mainFix/modPickCate',
+            }),
+
+            selectNavi(navi){
+                this.modPickCate(navi);
+            }
 
         }
     }
@@ -51,6 +69,11 @@
             line-height: 35px;
             font-weight: bold;
             cursor: pointer;
+
+            &.active{
+                background: #2c3e50;
+                color:#fff;
+            }
         }
 
         .navi-row:hover{

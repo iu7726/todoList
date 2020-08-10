@@ -4,4 +4,8 @@ export default {
       state.categoryList = payload;
     },
 
+    initPickCate(state, payload){
+      state.pickCate = payload;
+    },
+
 };
