@@ -15,6 +15,11 @@
                 <div>
                     <date-picker format="yyyy-MM-dd" @selected="selectDate"></date-picker>
                 </div>
+                <div>
+                    <select>
+                        <option v-for="(time,idx) in timeList" :key="'start_time_'+idx" :value="time">{{ time }}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <div>
@@ -22,6 +27,11 @@
                 </div>
                 <div>
                     <date-picker format="yyyy-MM-dd"></date-picker>
+                </div>
+                <div>
+                    <select>
+                        <option v-for="(time,idx) in timeList" :key="'end_time_'+idx" :value="time">{{ time }}</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -46,7 +56,7 @@
         data(){
           return{
               pickCate:[],
-              date:"",
+              timeList:[],
           }
         },
         watch:{
@@ -59,6 +69,9 @@
                 getPickCate:'mainFix/getPickCate',
             })
         },
+        mounted() {
+            this.timeListSet();
+        },
         methods:{
             popClose(){
                 this.$emit('addPopClose');
@@ -66,7 +79,28 @@
             selectDate(event){
                 let date = moment(event).format("YYYY-MM-DD");
                 console.log(date);
+            },
+            timeListSet(){
+
+                let start = moment('2020-08-13 00:00:00');
+                let end = moment("2020-08-13 23:30:00");
+                let flag = true;
+
+                while(flag){
+                    start.add(30,"minute");
+                    this.timeList.push(start.format('HH:mm'));
+
+                    if(Math.floor(moment.duration(end.diff(start)).asMinutes()) == 0){
+
+                        flag = false;
+
+                    }
+                }
+
+                console.log(this.timeList);
+
             }
+
         },
 
     }
