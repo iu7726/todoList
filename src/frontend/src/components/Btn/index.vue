@@ -59,5 +59,14 @@
             float: right;
             cursor: pointer;
         }
+
+        .save-btn{
+            float:right;
+            cursor: pointer;
+            border:1px solid #6EB5FF;
+            color: #6EB5FF;
+            padding : 3px 5px;
+            border-radius: 5px;
+        }
     }
 </style>

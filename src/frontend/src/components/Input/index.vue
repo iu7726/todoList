@@ -1,6 +1,6 @@
 <template>
     <div class="type-input">
-        <input :class="[cls]" :style="{width:inpW, height:inpH}"/>
+        <input :class="[cls]" :style="{width:inpW, height:inpH}" @input="inpInput"/>
     </div>
 </template>
 
@@ -23,8 +23,10 @@
             }
 
         },
-        mounted() {
-            console.log(this.inpW, this.inpH)
+        methods:{
+            inpInput(event){
+                this.$emit("input",event.target.value);
+            }
         }
     }
 </script>
@@ -39,6 +41,13 @@
             float: left;
             margin-left: 39%;
             margin-top: 8px;
+
+        }
+
+        .add-work-title{
+
+            width: 60%;
+            height: 24px;
 
         }
 
