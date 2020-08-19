@@ -1,9 +1,6 @@
 package mh.todo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "TodoWork")
 public class TodoWork {
@@ -16,7 +13,9 @@ public class TodoWork {
     private String tw_start;
     private String tw_end;
     private String tw_title;
-    private String tw_content;
+    private String tw_contents;
+
+
 
     public int getId() {
         return id;
@@ -66,11 +65,11 @@ public class TodoWork {
         this.tw_title = tw_title;
     }
 
-    public String getTw_content() {
-        return tw_content;
+    public String getTw_contents() {
+        return tw_contents;
     }
 
-    public void setTw_content(String tw_content) {
-        this.tw_content = tw_content;
+    public void setTw_contents(String tw_content) {
+        this.tw_contents = tw_content;
     }
 }

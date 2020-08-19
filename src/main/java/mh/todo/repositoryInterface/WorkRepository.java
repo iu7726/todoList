@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WorkRepository {
-    public Boolean workAdd(TodoWork todoWork);
+    public TodoWork workAdd(TodoWork todoWork);
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.logging.Logger;
 
 @Transactional
 @Repository
@@ -18,10 +19,14 @@ public class WorkJpaRepository implements WorkRepository {
     }
 
     @Override
-    public Boolean workAdd(TodoWork todoWork) {
+    public TodoWork workAdd(TodoWork todoWork) {
 
+        System.out.println(todoWork.getTw_title());
+        System.out.println(todoWork.getTw_contents());
 
+        em.persist(todoWork);
+        em.flush();
 
-        return null;
+        return todoWork;
     }
 }

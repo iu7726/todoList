@@ -14,7 +14,7 @@ public class WorkService {
         this.workRepository = workRepository;
     }
 
-    public Boolean addWork(TodoWork todoWork){
+    public TodoWork addWork(TodoWork todoWork){
         return this.workRepository.workAdd(todoWork);
     }
 }

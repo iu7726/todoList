@@ -57,7 +57,7 @@
 </template>
 
 <script>
-    import { mapGetters } from "vuex"
+    import { mapActions,mapGetters } from "vuex"
 
     import Btn from "@/components/Btn";
     import Input from "@/components/Input";
@@ -98,6 +98,9 @@
             this.timeListSet();
         },
         methods:{
+            ...mapActions({
+                addWork: 'work/addWork',
+            }),
             popClose(){
                 this.$emit('addPopClose');
             },
@@ -139,15 +142,15 @@
                 let data = {
 
                     'TW_TITLE':this.workTitle,
-                    'TW_CONTENT':this.workContent,
+                    'TW_CONTENTS':this.workContent,
                     'TW_START':this.startDate,
                     'TW_END':this.endDate,
-                    "GROUP_ID":this.pickCate.id,
+                    "GROUP_ID":1,
                     "TU_ID":"1",
 
                 }
-
-                console.log(data);
+                let ret = this.addWork(data);
+                console.log(data, ret);
             }
 
         },

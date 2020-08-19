@@ -17,7 +17,7 @@ public class WorkController {
     }
 
     @PostMapping("/api/workAdd")
-    public Boolean addWork(TodoWork todoWork){
+    public TodoWork addWork(TodoWork todoWork){
        return this.workService.addWork(todoWork);
     }
 
