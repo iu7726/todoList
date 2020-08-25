@@ -1,10 +1,11 @@
 package mh.todo.controller;
 
-import mh.todo.model.TodoWork;
-import mh.todo.service.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import mh.todo.model.TodoWork;
+import mh.todo.service.WorkService;
 
 @RestController
 public class WorkController {
@@ -18,7 +19,7 @@ public class WorkController {
 
     @PostMapping("/api/workAdd")
     public TodoWork addWork(TodoWork todoWork){
-       return this.workService.addWork(todoWork);
+        return this.workService.addWork(todoWork);
     }
 
 }

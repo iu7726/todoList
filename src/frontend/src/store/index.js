@@ -6,7 +6,7 @@ import modules from './modules'
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-  // ...
-  modules
+	// ...
+	modules
 });
 

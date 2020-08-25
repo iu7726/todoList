@@ -29,16 +29,16 @@ class TodoApplicationTests {
 		TW_TITLE: "테스트"
 		*/
 
-		todoWork.setTu_id(1);
-		todoWork.setTw_contents("텟텟↵테테↵텟↵테텟");
-		todoWork.setTw_end("2020-08-21");
-		todoWork.setTw_start("2020-08-19");
-		todoWork.setTw_title("테스트");
-		todoWork.setGroup_id(1);
+		todoWork.setTU_ID(1);
+		todoWork.setTW_CONTENTS("텟텟↵테테↵텟↵테텟");
+		todoWork.setTW_END("2020-08-21");
+		todoWork.setTW_START("2020-08-19");
+		todoWork.setTW_TITLE("테스트");
+		todoWork.setGROUP_ID(1);
 
 		TodoWork todoWork1 = workService.addWork(todoWork);
 
-		assertThat(todoWork.getTw_title()).isEqualTo(todoWork1.getTw_title());
+		assertThat(todoWork.getTW_TITLE()).isEqualTo(todoWork1.getTW_TITLE());
 
 	}
 

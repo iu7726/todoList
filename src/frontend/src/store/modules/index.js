@@ -7,22 +7,22 @@
 
  module 폴더(.)에 있는 모든 js 파일 로드, 하위폴더가 있으므로 true.
  */
-const requireModule = require.context('.',true, /\.js$/);
+const requireModule = require.context('.', true, /\.js$/);
 
 const modules = {};
 
 requireModule.keys().forEach(filename => {
     // module 폴더에 index.js 는 로드 파일이 아니므로 제외
-    const isIndexJsFile = filename ===  './index.js';
+    const isIndexJsFile = filename === './index.js';
 
     let rgx = /index/;
     const isFoloderIndex = rgx.test(filename);
 
-    if(!isIndexJsFile && isFoloderIndex){
+    if (!isIndexJsFile && isFoloderIndex) {
 
         const moduleName = filename.split('/')[1];
         // 모듈 추가
-        modules[moduleName] = {namespaced:true, ...requireModule(filename)};
+        modules[moduleName] = { namespaced: true, ...requireModule(filename) };
     }
 
 

@@ -21,8 +21,8 @@ public class WorkJpaRepository implements WorkRepository {
     @Override
     public TodoWork workAdd(TodoWork todoWork) {
 
-        System.out.println(todoWork.getTw_title());
-        System.out.println(todoWork.getTw_contents());
+        System.out.println(todoWork.getTW_TITLE());
+        System.out.println(todoWork.getTW_CONTENTS());
 
         em.persist(todoWork);
         em.flush();

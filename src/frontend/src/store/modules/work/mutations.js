@@ -1,6 +1,6 @@
 export default {
 
-    fakeMutation(state, payload){
+    fakeMutation(state, payload) {
         console.log(state, payload);
     }
 

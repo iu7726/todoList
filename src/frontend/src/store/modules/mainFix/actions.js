@@ -2,13 +2,13 @@ import axios from 'axios'
 
 export default {
 
-    getCategory({ commit }){
+    getCategory({ commit }) {
         axios.get('/api/main').then(res => {
-            commit('initCategory',res.data);
+            commit('initCategory', res.data);
         })
     },
 
-    modPickCate({commit},payload){
+    modPickCate({ commit }, payload) {
         commit('initPickCate', payload);
     }
 

@@ -16,7 +16,7 @@
                     <date-picker format="yyyy-MM-dd" @selected="selectStartDate"></date-picker>
                 </div>
                 <div class="box-time">
-                    <select>
+                    <select v-model="startTime">
                         <option v-for="(time,idx) in timeList" :key="'start_time_'+idx" :value="time">{{ time }}</option>
                     </select>
                 </div>
@@ -29,7 +29,7 @@
                     <date-picker format="yyyy-MM-dd" @selected="selectEndDate"></date-picker>
                 </div>
                 <div class="box-time">
-                    <select>
+                    <select v-model="endTime">
                         <option v-for="(time,idx) in timeList" :key="'end_time_'+idx" :value="time">{{ time }}</option>
                     </select>
                 </div>
@@ -75,14 +75,16 @@
             'v-ta' : Ta,
         },
         data(){
-          return{
-              pickCate:[],
-              timeList:[],
-              startDate:'',
-              endDate:'',
-              workTitle:"",
-              workContent:"",
-          }
+            return{
+                pickCate:[],
+                timeList:[],
+                startDate:'',
+                endDate:'',
+                workTitle:"",
+                workContent:"",
+                startTime:"",
+                endTime:"",
+            }
         },
         watch:{
             getPickCate(val){
@@ -143,8 +145,8 @@
 
                     'TW_TITLE':this.workTitle,
                     'TW_CONTENTS':this.workContent,
-                    'TW_START':this.startDate,
-                    'TW_END':this.endDate,
+                    'TW_START':this.startDate + " " + this.startTime,
+                    'TW_END':this.endDate + " " + this.endTime,
                     "GROUP_ID":1,
                     "TU_ID":"1",
 

@@ -1,6 +1,9 @@
 package mh.todo.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity(name = "TodoWork")
 public class TodoWork {
@@ -8,14 +11,12 @@ public class TodoWork {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int group_id;
-    private int tu_id;
-    private String tw_start;
-    private String tw_end;
-    private String tw_title;
-    private String tw_contents;
-
-
+    private int GROUP_ID;
+    private int TU_ID;
+    private String TW_START;
+    private String TW_END;
+    private String TW_TITLE;
+    private String TW_CONTENTS;
 
     public int getId() {
         return id;
@@ -25,51 +26,51 @@ public class TodoWork {
         this.id = id;
     }
 
-    public int getGroup_id() {
-        return group_id;
+    public int getGROUP_ID() {
+        return GROUP_ID;
     }
 
-    public void setGroup_id(int group_id) {
-        this.group_id = group_id;
+    public void setGROUP_ID(int GROUP_ID) {
+        this.GROUP_ID = GROUP_ID;
     }
 
-    public int getTu_id() {
-        return tu_id;
+    public int getTU_ID() {
+        return TU_ID;
     }
 
-    public void setTu_id(int tu_id) {
-        this.tu_id = tu_id;
+    public void setTU_ID(int TU_ID) {
+        this.TU_ID = TU_ID;
     }
 
-    public String getTw_start() {
-        return tw_start;
+    public String getTW_START() {
+        return TW_START;
     }
 
-    public void setTw_start(String tw_start) {
-        this.tw_start = tw_start;
+    public void setTW_START(String TW_START) {
+        this.TW_START = TW_START;
     }
 
-    public String getTw_end() {
-        return tw_end;
+    public String getTW_END() {
+        return TW_END;
     }
 
-    public void setTw_end(String tw_end) {
-        this.tw_end = tw_end;
+    public void setTW_END(String TW_END) {
+        this.TW_END = TW_END;
     }
 
-    public String getTw_title() {
-        return tw_title;
+    public String getTW_TITLE() {
+        return TW_TITLE;
     }
 
-    public void setTw_title(String tw_title) {
-        this.tw_title = tw_title;
+    public void setTW_TITLE(String TW_TITLE) {
+        this.TW_TITLE = TW_TITLE;
     }
 
-    public String getTw_contents() {
-        return tw_contents;
+    public String getTW_CONTENTS() {
+        return TW_CONTENTS;
     }
 
-    public void setTw_contents(String tw_content) {
-        this.tw_contents = tw_content;
+    public void setTW_CONTENTS(String TW_CONTENTS) {
+        this.TW_CONTENTS = TW_CONTENTS;
     }
 }
