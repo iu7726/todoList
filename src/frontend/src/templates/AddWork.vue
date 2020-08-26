@@ -46,11 +46,13 @@
                     <v-ta cls="add-work-content" @input="workContentInput"></v-ta>
                 </div>
 
+                <div class="add-save">
+                    <v-btn cls="save-btn" @btnClick="workSave">저장하기</v-btn>
+                </div>
+
             </div>
 
-            <div class="add-save">
-                <v-btn cls="save-btn" @btnClick="workSave">저장하기</v-btn>
-            </div>
+            
         </div>
 
     </div>
@@ -94,6 +96,7 @@
         computed:{
             ...mapGetters({
                 getPickCate:'mainFix/getPickCate',
+
             })
         },
         mounted() {
@@ -170,6 +173,7 @@
         height: 37vh;
         border: 1px solid #000;
         z-index: 2;
+        min-height: 302px;
 
         .add-header{
             background: #2c3e50;
@@ -203,6 +207,10 @@
                 }
             }
 
+        }
+
+        .add-save{
+            margin-top: -34px;
         }
     }
 </style>

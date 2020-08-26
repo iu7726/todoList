@@ -1,12 +1,14 @@
 package mh.todo.repository;
 
-import mh.todo.model.TodoWork;
-import mh.todo.repositoryInterface.WorkRepository;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import java.util.logging.Logger;
+import mh.todo.model.TodoWork;
+import mh.todo.repositoryInterface.WorkRepository;
 
 @Transactional
 @Repository
@@ -21,12 +23,19 @@ public class WorkJpaRepository implements WorkRepository {
     @Override
     public TodoWork workAdd(TodoWork todoWork) {
 
-        System.out.println(todoWork.getTW_TITLE());
-        System.out.println(todoWork.getTW_CONTENTS());
-
         em.persist(todoWork);
         em.flush();
 
         return todoWork;
+    }
+
+    @Override
+    public List<TodoWork> workList(TodoWork todoWork) {
+        // TODO Auto-generated method stub
+
+        return em.createQuery("SELECT todo FROM TodoWork AS todo WHERE todo.TU_ID = :tu_id AND todo.GROUP_ID = :group_id", TodoWork.class)
+                .setParameter("tu_id", todoWork.getTU_ID())
+                .setParameter("group_id", todoWork.getGROUP_ID())
+                .getResultList();
     }
 }

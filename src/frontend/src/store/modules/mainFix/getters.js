@@ -1,11 +1,11 @@
 export default {
 
     categoryList(state) {
-        return state.categoryList.map(i => {
+        return state.categoryList.map((i,idx) => {
 
             return {
                 ...i,
-                'select': false,
+                'select': idx == 0,
             }
         });
     },

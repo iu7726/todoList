@@ -27,6 +27,7 @@
 
             width: 60%;
             height: 16vh;
+            min-height: 135px;
 
         }
 

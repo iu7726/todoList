@@ -1,12 +1,15 @@
 package mh.todo;
 
-import mh.todo.model.TodoWork;
-import mh.todo.service.WorkService;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import mh.todo.model.TodoWork;
+import mh.todo.service.WorkService;
 
 @SpringBootTest
 class TodoApplicationTests {
@@ -39,6 +42,20 @@ class TodoApplicationTests {
 		TodoWork todoWork1 = workService.addWork(todoWork);
 
 		assertThat(todoWork.getTW_TITLE()).isEqualTo(todoWork1.getTW_TITLE());
+
+	}
+
+	@Test
+	void 할일조회(){
+
+		TodoWork todoWork = new TodoWork();
+
+		todoWork.setGROUP_ID(1);
+		todoWork.setTU_ID(1);
+
+		List<TodoWork> workList = workService.workList(todoWork);
+
+		assertThat(workList.get(0).getId()).isEqualTo(8);
 
 	}
 

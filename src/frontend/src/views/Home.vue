@@ -71,6 +71,8 @@
 
     import addWork from "../templates/AddWork"
 
+    import { mapActions, mapGetters } from "vuex"
+
     export default {
         name: "Home",
         components: {
@@ -117,10 +119,18 @@
         },
         watch:{
         },
+        computed:{
+            ...mapGetters({
+                
+            })
+        },
         mounted() {
 
         },
         methods:{
+            ...mapActions({
+                
+            }),
             addView(){
                 console.log("얍얍")
             }
