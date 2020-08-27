@@ -87,49 +87,33 @@
                     locale:'ko'
                 },
                 addPopView:false,
-                events:[
-                    {
-                        id: 'a',
-                        title: 'my event',
-                        start: '2020-08-08',
-                        end : '2020-08-09 23:20:00',
-                    },
-                    {
-                        id: 'b',
-                        title: 'my event2',
-                        start: '2020-08-08',
-                        end : '2020-08-09 23:20:00',
-                    },
-                    {
-                        id: '1',
-                        groupId:'13',
-                        title: 'my group event',
-                        start: '2020-08-10',
-                        end : '2020-08-15 23:20:00',
-                    },
-                    {
-                        id: '2',
-                        groupId:'13',
-                        title: 'my group event2',
-                        start: '2020-08-11',
-                        end : '2020-08-12 23:20:00',
-                    }
-                ],
+                events:[],
             }
         },
         watch:{
+            workList(val){
+                this.events = val.map(i => {
+                    return {
+                        id:i.id,
+                        groupId:i.group_ID,
+                        start:i.tw_START,
+                        end:i.tw_END,
+                        title:i.tw_TITLE
+                    }
+                });
+            }
         },
         computed:{
             ...mapGetters({
-                
+                workList:'work/workList'
             })
         },
         mounted() {
-
+            this.getWorkList({GROUP_ID:1, TU_ID:1})
         },
         methods:{
             ...mapActions({
-                
+                getWorkList:'work/getWorkList'
             }),
             addView(){
                 console.log("얍얍")

@@ -17,6 +17,8 @@ public class TodoWork {
     private String TW_END;
     private String TW_TITLE;
     private String TW_CONTENTS;
+    private int CATEGORY_ID;
+    private int TW_CHECK;
 
     public int getId() {
         return id;
@@ -72,5 +74,21 @@ public class TodoWork {
 
     public void setTW_CONTENTS(String TW_CONTENTS) {
         this.TW_CONTENTS = TW_CONTENTS;
+    }
+
+    public int getCATEGORY_ID() {
+        return this.CATEGORY_ID;
+    }
+
+    public void setCATEGORY_ID(int CATEGORY_ID) {
+        this.CATEGORY_ID = CATEGORY_ID;
+    }
+
+    public int getTW_CHECK() {
+        return this.TW_CHECK;
+    }
+
+    public void setTW_CHECK(int TW_CHECK) {
+        this.TW_CHECK = TW_CHECK;
     }
 }

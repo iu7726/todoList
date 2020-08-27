@@ -38,6 +38,8 @@ class TodoApplicationTests {
 		todoWork.setTW_START("2020-08-19");
 		todoWork.setTW_TITLE("테스트");
 		todoWork.setGROUP_ID(1);
+		todoWork.setCATEGORY_ID(2);
+		todoWork.setTW_CHECK(0);
 
 		TodoWork todoWork1 = workService.addWork(todoWork);
 

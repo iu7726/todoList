@@ -6,12 +6,12 @@ export default {
 
     addWork({ commit }, payload) {
         axios.post('/api/workAdd', qs.stringify(payload)).then(res => {
-            commit("fakeMutation", res.data);
+            commit("addWorkList", res.data);
         })
     },
 
     getWorkList({ commit }, payload){
-        axios.get('/api/workList', qs.stringify(payload)).then(res => {
+        axios.get('/api/workList', {params:payload}).then(res => {
             commit('initWorkList', res.data);
         })
     }

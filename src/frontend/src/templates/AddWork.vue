@@ -96,7 +96,6 @@
         computed:{
             ...mapGetters({
                 getPickCate:'mainFix/getPickCate',
-
             })
         },
         mounted() {
@@ -133,9 +132,6 @@
 
                     }
                 }
-
-                console.log(this.timeList);
-
             },
             workTitleInput(event){
                 this.workTitle = event;
@@ -152,6 +148,8 @@
                     'TW_END':this.endDate + " " + this.endTime,
                     "GROUP_ID":1,
                     "TU_ID":"1",
+                    "TW_CHECK":0,
+                    "CATEGORY_ID":this.pickCate.id
 
                 }
                 let ret = this.addWork(data);
