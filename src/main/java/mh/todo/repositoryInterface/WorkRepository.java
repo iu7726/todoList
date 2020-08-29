@@ -10,4 +10,5 @@ import mh.todo.model.TodoWork;
 public interface WorkRepository {
     public TodoWork workAdd(TodoWork todoWork);
     public List<TodoWork> workList(TodoWork todoWork);
+    public TodoWork workMod(TodoWork todoWork);
 }

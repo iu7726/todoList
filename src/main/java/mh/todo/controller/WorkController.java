@@ -30,4 +30,9 @@ public class WorkController {
         return this.workService.workList(todoWork);
     }
 
+    @PostMapping("/api/workMod")
+    public TodoWork workMod(TodoWork todoWork){
+        return this.workService.modWork(todoWork);
+    }
+
 }

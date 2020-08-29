@@ -1,13 +1,13 @@
 <template>
     <div class="type-textarea">
-        <textarea class="ta-basic" :class="[cls]" @input="taInput"></textarea>
+        <textarea class="ta-basic" :class="[cls]" :value="val" @input="taInput"></textarea>
     </div>
 </template>
 
 <script>
     export default {
         name: "index.vue",
-        props:['cls'],
+        props:['cls','val'],
         methods:{
             taInput(event){
                 this.$emit("input",event.target.value)

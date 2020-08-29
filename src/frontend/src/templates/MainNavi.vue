@@ -31,10 +31,10 @@
         },
         computed:{
 
-          ...mapGetters({
-              categoryList:'mainFix/categoryList',
-              getPickCate:'mainFix/getPickCate',
-          }),
+            ...mapGetters({
+                categoryList:'mainFix/categoryList',
+                getPickCate:'mainFix/getPickCate',
+            }),
 
         },
         mounted() {

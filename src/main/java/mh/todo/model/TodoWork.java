@@ -10,7 +10,7 @@ public class TodoWork {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int ID;
     private int GROUP_ID;
     private int TU_ID;
     private String TW_START;
@@ -21,11 +21,11 @@ public class TodoWork {
     private int TW_CHECK;
 
     public int getId() {
-        return id;
+        return ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int ID) {
+        this.ID = ID;
     }
 
     public int getGROUP_ID() {

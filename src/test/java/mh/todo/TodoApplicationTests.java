@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -59,6 +60,22 @@ class TodoApplicationTests {
 
 		assertThat(workList.get(0).getId()).isEqualTo(8);
 
+	}
+
+	@Test
+	void 할일수정(){
+		TodoWork todoWork = new TodoWork();
+		todoWork.setId(8);
+		todoWork.setTW_CONTENTS("변경해봤습니다.");
+		todoWork.setTW_END("2020-09-03 11:11:11");
+		todoWork.setTW_START("2020-09-02 09:11:11");
+		todoWork.setTW_TITLE("변경");
+		todoWork.setCATEGORY_ID(2);
+		todoWork.setTW_CHECK(1);
+
+		TodoWork modWork = workService.modWork(todoWork);
+
+		assertThat(modWork.getId()).isEqualTo(todoWork.getId());
 	}
 
 }

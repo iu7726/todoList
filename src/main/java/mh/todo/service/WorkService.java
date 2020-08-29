@@ -24,4 +24,8 @@ public class WorkService {
     public List<TodoWork> workList(TodoWork todoWork){
         return this.workRepository.workList(todoWork);
     }
+
+    public TodoWork modWork(TodoWork todoWork){
+        return this.workRepository.workMod(todoWork);
+    }
 }

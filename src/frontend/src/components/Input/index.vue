@@ -1,6 +1,6 @@
 <template>
     <div class="type-input">
-        <input :class="[cls]" :style="{width:inpW, height:inpH}" @input="inpInput"/>
+        <input :class="[cls]" :value="val" :style="{width:inpW, height:inpH}" @input="inpInput"/>
     </div>
 </template>
 
@@ -20,6 +20,10 @@
 
             cls: {
               type:String,
+            },
+
+            val: {
+                type:String
             }
 
         },

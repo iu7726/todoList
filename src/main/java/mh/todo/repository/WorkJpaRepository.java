@@ -38,4 +38,20 @@ public class WorkJpaRepository implements WorkRepository {
                 .setParameter("group_id", todoWork.getGROUP_ID())
                 .getResultList();
     }
+
+    @Override
+    public TodoWork workMod(TodoWork todoWork) {
+        System.out.println(todoWork.getId());
+        System.out.println(todoWork.getTW_START());
+        // 엔티티 조회
+        TodoWork modWork = em.find(TodoWork.class, todoWork.getId());
+        // 엔티티 변경
+        modWork.setTW_START(todoWork.getTW_START());
+        modWork.setTW_END(todoWork.getTW_END());
+        modWork.setTW_TITLE(todoWork.getTW_TITLE());
+        modWork.setTW_CONTENTS(todoWork.getTW_CONTENTS());
+        modWork.setCATEGORY_ID(todoWork.getCATEGORY_ID());
+        modWork.setTW_CHECK(todoWork.getTW_CHECK());
+        return modWork;
+    }
 }
