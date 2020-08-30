@@ -9,4 +9,8 @@ export default {
 		state.pickCate = payload;
 	},
 
+	addCategory(state, payload) {
+		state.categoryList.push(payload);
+	}
+
 };

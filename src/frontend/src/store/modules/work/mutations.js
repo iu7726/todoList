@@ -1,9 +1,5 @@
 export default {
 
-	fakeMutation(state, payload) {
-		console.log(state, payload);
-	},
-
 	addWorkList(state,payload){
 		state.workList.push(payload)
 	},
@@ -13,7 +9,9 @@ export default {
 	},
 
 	modWork(state, payload){
+
 		state.workLIst = state.workList.map(i => {
+
 			if(i.id == payload.id){
 
 				i.tw_TITLE = payload.tw_TITLE
@@ -23,10 +21,18 @@ export default {
 				i.category_ID = payload.category_ID
 				i.tw_CHECK = payload.tw_CHECK
 
-			} else {
-				return i;
 			}
+				
+			return i;
+
 		})
+
+	},
+
+	delWork(state, payload){
+
+		state.workList = state.workLIst.filter(i => i.id != payload.id);
+
 	}
 
 

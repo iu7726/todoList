@@ -4,29 +4,29 @@
             ToDo
         </div>
         <div class="header-search">
-            <v-input cls="header-input" />
-            <v-btn cls="header-search-btn">검색</v-btn>
+            <!-- <v-input cls="header-input" />
+            <v-btn cls="header-search-btn">검색</v-btn> -->
         </div>
         <div class="header-info">
             <div class="info-time">
                 2020-08-02 월
             </div>
             <div class="info-navi">
-                <v-btn cls="header-login-btn">로그인</v-btn>
+                <!-- <v-btn cls="header-login-btn">로그인</v-btn> -->
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import Input from "../components/Input"
-    import Btn from "../components/Btn"
+    // import Input from "../components/Input"
+    // import Btn from "../components/Btn"
 
     export default {
         name: "MainHeader",
         components:{
-            "v-input":Input,
-            "v-btn":Btn,
+            // "v-input":Input,
+            // "v-btn":Btn,
         }
     }
 </script>

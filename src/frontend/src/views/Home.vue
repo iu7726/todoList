@@ -7,62 +7,36 @@
 			@event-selected="viewWork"
 			@event-drop="moveWork"
 		></full-calendar>
-		<div class="work-body today">
+		<!-- <div class="work-body today">
 			<div class="work-title">
 				오늘의 할일 목록입니다.
 			</div>
 			<div class="work-list">
 				<ul>
-					<li>
-						1.test
-					</li>
-					<li>
-						2.test2
-					</li>
-					<li>
-						3.test3
-					</li>
-					<li>
-						1.test
-					</li>
-					<li>
-						2.test2
-					</li>
-					<li>
-						3.test3
-					</li>
-					<li>
-						1.test
-					</li>
-					<li>
-						2.test2
-					</li>
-					<li>
-						3.test3
+					<li v-for="(work, idx) in events" :key="'today_work_'+work.id">
+						{{idx + 1}}. {{work.title}}
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="work-body yesterday">
 			<div class="work-title">
-				어제 하지 못한 목록입니다.
+				완료 못한 목록입니다.
 			</div>
 			<div class="work-list">
 				<ul>
 					<li>
 						1.test1
 					</li>
-					<li>
-						2.test2
-					</li>
-					<li>
-						3.test3
-					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="work-body">
+			
+		</div> -->
+		<div class="btn-body">
 			<v-btn cls="add-work-btn" @btnClick="addPopView = true">추가하기</v-btn>
+			<v-btn cls="add-work-btn" @btnClick="complateView = true">완료한 목록 보기</v-btn>
 		</div>
 		<add-work v-show="addPopView" @addPopClose="addPopView = false"></add-work>
 		<mod-work
@@ -70,15 +44,17 @@
 			v-show="modPopView"
 			@modPopClose="modPopView = false"
 		></mod-work>
+		<complate-work v-show="complateView" :list="complate" @complateClose="complateView = false"></complate-work>
 	</div>
 </template>
 
 <script>
 import { FullCalendar } from "vue-full-calendar";
 import "fullcalendar/dist/fullcalendar.css";
-import Btn from "../components/Btn";
-import addWork from "../templates/AddWork";
+import Btn from "@/components/Btn";
+import addWork from "@/templates/AddWork";
 import modWork from "@/templates/ModWork";
+import complateWork from "@/templates/ComplateWork";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -88,6 +64,7 @@ export default {
 		"v-btn":Btn,
 		'add-work':addWork,
 		'mod-work':modWork,
+		'complate-work':complateWork,
 	},
 	data(){
 		return {
@@ -98,12 +75,15 @@ export default {
 			addPopView:false,
 			modPopView:false,
 			events:[],
+			complate:[],
 			pickEvent:[],
+			complateView:false,
 		}
 	},
 	watch:{
 		workList(val){
-			this.events = val.map(i => {
+
+			this.events = val.filter(i => !i.tw_CHECK).map(i => {
 				return {
 					id:i.id,
 					groupId:i.group_ID,
@@ -111,18 +91,33 @@ export default {
 					end:i.tw_END,
 					title:i.tw_TITLE,
 					contents:i.tw_CONTENTS,
-					category:i.category_ID
+					category:i.category_ID,
+					check:i.tw_CHECK
 				}
 			});
-		}
+
+			this.complate = val.filter(i => i.tw_CHECK).map(i => {
+				return {
+					id:i.id,
+					groupId:i.group_ID,
+					start:i.tw_START,
+					end:i.tw_END,
+					title:i.tw_TITLE,
+					contents:i.tw_CONTENTS,
+					category:i.category_ID,
+					check:i.tw_CHECK
+				}
+			});
+		},
 	},
 	computed:{
 		...mapGetters({
-			workList:'work/workList'
-		})
+			workList:'work/workList',
+			getPickCate:"mainFix/getPickCate"
+		}),
 	},
 	mounted() {
-		this.getWorkList({GROUP_ID:1, TU_ID:1})
+		this.getWorkList({GROUP_ID:1, TU_ID:1, CATEGORY_ID: 2})
 	},
 	methods:{
 
@@ -131,7 +126,6 @@ export default {
 		}),
 
 		viewWork(event){
-			console.log(event);
 			this.modPopView=true;
 			this.pickEvent = event
 		},
@@ -179,12 +173,14 @@ export default {
 			}
 
 			.work-list{
-				height: 7vh;
+				height: 15vh;
 				overflow-y: auto;
 			}
 
+		}
 
-
+		.btn-body{
+			padding-left:22%;
 		}
 	}
 </style>

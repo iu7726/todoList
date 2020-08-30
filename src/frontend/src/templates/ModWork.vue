@@ -50,7 +50,9 @@
                 </div>
 
                 <div class="add-save">
+                    <v-btn cls="del-btn" @btnClick="removeWork">삭제하기</v-btn>
                     <v-btn cls="save-btn" @btnClick="workSave">수정하기</v-btn>
+                    <v-btn :cls="{active:check == 1, 'complate-btn':true}" @btnClick="workComplate">완료하기</v-btn>
                 </div>
 
             </div>
@@ -91,6 +93,7 @@
                 startTime:"",
                 endTime:"",
                 pickCateId:0,
+                check:0,
             }
         },
         watch:{
@@ -105,6 +108,7 @@
                 this.endDate = val.end.format("YYYY-MM-DD")
                 this.endTime = val.end.format("HH:mm")
                 this.pickCateId = val.category
+                this.check = val.check
             }
         },
         computed:{
@@ -118,6 +122,7 @@
         methods:{
             ...mapActions({
                 modWork: 'work/modWork',
+                delWork: 'work/delWork',
             }),
             popClose(){
                 this.$emit('modPopClose');
@@ -154,19 +159,53 @@
                 this.workContent = event;
             },
             workSave(){
+
+                if(!confirm("수정하시겠습니까?")) return false;
+
                 let data = {
-                    "id" : this.pickEvent.id,
-                    'TW_TITLE':this.workTitle,
-                    'TW_CONTENTS':this.workContent,
-                    'TW_START':this.startDate + " " + this.startTime,
-                    'TW_END':this.endDate + " " + this.endTime,
-                    "GROUP_ID":1,
-                    "TU_ID":"1",
-                    "TW_CHECK":1,
-                    "CATEGORY_ID":this.pickCateId,
+                    modData:{
+                        "id" : this.pickEvent.id,
+                        'TW_TITLE':this.workTitle,
+                        'TW_CONTENTS':this.workContent,
+                        'TW_START':this.startDate + " " + this.startTime,
+                        'TW_END':this.endDate + " " + this.endTime,
+                        "GROUP_ID":1,
+                        "TU_ID":"1",
+                        "TW_CHECK":this.check,
+                        "CATEGORY_ID":this.pickCateId,
+                    },
+                    listData:{
+                        GROUP_ID:1,
+                        TU_ID:1
+                    }
                 }
-                let ret = this.modWork(data);
-                console.log(data,ret)
+                this.modWork(data);
+                this.popClose();
+
+                alert("수정되었습니다.");
+            },
+
+            removeWork(){
+                if(!confirm("삭제하시겠습니까?")) return false;
+
+                let data = {
+                    delData:{
+                        "id" : this.pickEvent.id
+                    },
+                    listData:{
+                        GROUP_ID:1,
+                        TU_ID:1
+                    }
+                }
+
+                this.delWork(data);
+                this.popClose();
+
+                alert("삭제되었습니다.")
+            },
+
+            workComplate(){
+                this.check = this.check == 0? 1 : 0;
             }
 
         },

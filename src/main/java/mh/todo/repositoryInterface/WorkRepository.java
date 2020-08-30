@@ -11,4 +11,5 @@ public interface WorkRepository {
     public TodoWork workAdd(TodoWork todoWork);
     public List<TodoWork> workList(TodoWork todoWork);
     public TodoWork workMod(TodoWork todoWork);
+    public Boolean workDel(TodoWork todoWork);
 }

@@ -152,8 +152,7 @@
                     "CATEGORY_ID":this.pickCate.id
 
                 }
-                let ret = this.addWork(data);
-                console.log(data, ret);
+                this.addWork(data);
             }
 
         },

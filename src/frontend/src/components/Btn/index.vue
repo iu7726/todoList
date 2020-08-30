@@ -48,11 +48,16 @@
         }
 
         .add-work-btn{
+            float:left;
             border: 1px solid #6EB5FF;
             color: #6EB5FF;
             text-align: center;
             border-radius: 4px;
             cursor: pointer;
+            width: 30%;
+            height: 4vh;
+            line-height: 4vh;
+            margin-right: 5%;
         }
 
         .add-close{
@@ -67,6 +72,48 @@
             color: #6EB5FF;
             padding : 3px 5px;
             border-radius: 5px;
+        }
+
+        .save-btn:hover{
+            background:#6EB5FF;
+            color:#fff;
+            font-weight: blod;
+        }
+
+        .del-btn{
+            float:right;
+            cursor: pointer;
+            border:1px solid #CC0000;
+            color: #CC0000;
+            padding : 3px 5px;
+            border-radius: 5px;
+        }
+
+        .del-btn:hover{
+            background:#CC0000;
+            color:#fff;
+            font-weight: blod;
+        }
+
+        .complate-btn{
+            float:right;
+            cursor: pointer;
+            border:1px solid #90AFFF;
+            color: #90AFFF;
+            padding : 3px 5px;
+            border-radius: 5px;
+
+            &.active{
+                background:#90AFFF;
+                color:#fff;
+                font-weight: blod;
+            }
+        }
+
+        .complate-btn:hover{
+            background:#90AFFF;
+            color:#fff;
+            font-weight: blod;
         }
     }
 </style>

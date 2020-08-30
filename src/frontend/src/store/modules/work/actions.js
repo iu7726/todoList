@@ -16,10 +16,15 @@ export default {
 		})
 	},
 
-	modWork({ commit }, payload){
-		console.log(qs.stringify(payload))
-		axios.post("/api/workMod", qs.stringify(payload)).then(res => {
-			commit("modWork", res.data)
+	modWork({ dispatch }, payload){
+		axios.post("/api/workMod", qs.stringify(payload.modData)).then(() => {
+			dispatch('getWorkList',payload.listData)
+		})
+	},
+
+	delWork({ dispatch }, payload){
+		axios.post("/api/workDel", qs.stringify(payload.delData)).then(() => {
+			dispatch("getWorkList", payload.listData);
 		})
 	}
 

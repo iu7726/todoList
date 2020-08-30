@@ -26,4 +26,31 @@ public class MainJpaRepository implements MainRepository {
                 .setParameter("users_id", 1)
                 .getResultList();
     }
+
+    @Override
+    public TodoCategoryModel addTodoCategory(TodoCategoryModel todoCategoryModel) {
+        // TODO Auto-generated method stub
+        em.persist(todoCategoryModel);
+        em.flush();
+
+        return todoCategoryModel;
+    }
+
+    @Override
+    public TodoCategoryModel modTodoCategory(TodoCategoryModel todoCategoryModel) {
+        // TODO Auto-generated method stub
+
+        TodoCategoryModel modModel = em.find(TodoCategoryModel.class, todoCategoryModel.getId());
+
+        modModel.setCate_name(todoCategoryModel.getCate_name());
+
+        return modModel;
+    }
+
+    @Override
+    public void delTodoCategory(TodoCategoryModel todoCategoryModel) {
+        // TODO Auto-generated method stub
+        TodoCategoryModel delModel = em.find(TodoCategoryModel.class, todoCategoryModel.getId());
+        em.remove(delModel);
+    }
 }

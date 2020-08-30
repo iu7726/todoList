@@ -28,4 +28,8 @@ public class WorkService {
     public TodoWork modWork(TodoWork todoWork){
         return this.workRepository.workMod(todoWork);
     }
+
+    public void delWork(TodoWork todoWork){
+        this.workRepository.workDel(todoWork);
+    }
 }

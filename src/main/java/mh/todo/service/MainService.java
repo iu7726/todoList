@@ -22,4 +22,16 @@ public class MainService {
         return mainRepository.getTodoCategory();
     }
 
+    public TodoCategoryModel addTodoCategory(TodoCategoryModel todoCategoryModel){
+        return mainRepository.addTodoCategory(todoCategoryModel);
+    }
+
+    public TodoCategoryModel modTodoCategory(TodoCategoryModel todoCategoryModel){
+        return mainRepository.modTodoCategory(todoCategoryModel);
+    }
+
+    public void delTodoCategory(TodoCategoryModel todoCategoryModel){
+        mainRepository.delTodoCategory(todoCategoryModel);
+    }
+
 }

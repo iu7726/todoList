@@ -55,6 +55,7 @@ class TodoApplicationTests {
 
 		todoWork.setGROUP_ID(1);
 		todoWork.setTU_ID(1);
+		todoWork.setCATEGORY_ID(2);
 
 		List<TodoWork> workList = workService.workList(todoWork);
 
@@ -77,5 +78,4 @@ class TodoApplicationTests {
 
 		assertThat(modWork.getId()).isEqualTo(todoWork.getId());
 	}
-
 }

@@ -9,6 +9,10 @@
         >
             {{navi.cate_name}}
         </div>
+        <div class="navi-row setting" @click="settingView = true" >
+            설정하기
+        </div>
+        <category-setting v-show="settingView" :list="categoryList" @popClose="settingView = false"></category-setting>
     </div>
 </template>
 
@@ -16,12 +20,18 @@
 
     import {mapActions, mapGetters} from "vuex"
 
+    import categorySetting from "@/templates/CategorySetting"
+
     export default {
         name: "MainNavi",
+        components:{
+            'category-setting':categorySetting
+        },
         data() {
             return{
                 naviList:[],
                 selectId:0,
+                settingView:false,
             }
         },
         watch:{
@@ -45,9 +55,11 @@
             ...mapActions({
                 getCategory:'mainFix/getCategory',
                 modPickCate:'mainFix/modPickCate',
+                getWorkList:'work/getWorkList'
             }),
 
             selectNavi(navi){
+                this.getWorkList({GROUP_ID:1, TU_ID:1, CATEGORY_ID: navi.id})
                 this.modPickCate(navi);
             }
 
@@ -69,10 +81,15 @@
             line-height: 35px;
             font-weight: bold;
             cursor: pointer;
+            margin-bottom: 2%;
 
             &.active{
                 background: #2c3e50;
                 color:#fff;
+            }
+
+            &.setting{
+                margin-top: 1%;
             }
         }
 

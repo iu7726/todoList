@@ -35,4 +35,9 @@ public class WorkController {
         return this.workService.modWork(todoWork);
     }
 
+    @PostMapping("/api/workDel")
+    public void workDel(TodoWork todoWork){
+        this.workService.delWork(todoWork);
+    }
+
 }
